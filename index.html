@@ -2,414 +2,208 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Discover useful digital tools, trending products, gadgets and online finds from around the world.">
-<meta name="theme-color" content="#080d19">
-<title>Money-Link — Discover Your Next Favourite Thing</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#087cf0">
+<title>Money-Link | Discover More</title>
 
 <style>
 :root {
-  --bg:#080d19;
-  --panel:#111a2a;
-  --border:#28364b;
-  --text:#f4f7ff;
-  --muted:#aab7ca;
-  --green:#65f0b5;
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:85px}
-body{
-  margin:0;background:var(--bg);color:var(--text);
-  font-family:Arial,Helvetica,sans-serif;line-height:1.6
-}
-a{color:inherit}
-header{
-  position:sticky;top:0;z-index:5;background:#080d19f5;
-  border-bottom:1px solid var(--border);padding:15px 5%;
-  display:flex;justify-content:space-between;align-items:center;gap:12px
-}
-.logo{font-size:24px;font-weight:900;color:var(--green);white-space:nowrap}
-.logo span{color:white}
-nav{display:flex;gap:15px;flex-wrap:wrap}
-nav a{font-size:13px;color:var(--muted);text-decoration:none}
-nav a:hover{color:var(--green)}
-.hero{
-  text-align:center;padding:75px 20px 65px;
-  background:radial-gradient(ellipse at top,#19404a,transparent 72%)
-}
-.badge{
-  display:inline-block;color:var(--green);border:1px solid #315b59;
-  border-radius:25px;padding:6px 13px;font-size:12px;margin-bottom:18px
-}
-h1{font-size:clamp(36px,7vw,65px);line-height:1.1;margin:0 0 20px}
-h1 span,.green{color:var(--green)}
-.hero p{max-width:600px;margin:0 auto 25px;color:var(--muted)}
-.button{
-  display:inline-block;background:var(--green);color:#07120f;
-  padding:12px 19px;border-radius:9px;text-decoration:none;font-weight:bold
-}
-.button.secondary{background:transparent;color:var(--green);border:1px solid var(--green)}
-section{padding:38px 5%;max-width:1250px;margin:auto}
-.section-head{margin-bottom:22px}
-h2{font-size:27px;margin:0 0 5px}
-.section-head p,.muted{color:var(--muted);margin:0}
-.search-wrap{max-width:680px;margin:25px auto 0}
-#search{
-  width:100%;padding:15px;border:1px solid var(--border);
-  border-radius:12px;background:var(--panel);color:white;font-size:16px
-}
-.filters{display:flex;gap:9px;flex-wrap:wrap;margin:20px 0}
-.filter{
-  padding:9px 14px;border:1px solid var(--border);border-radius:30px;
-  color:var(--muted);background:var(--panel);cursor:pointer
-}
-.filter.active{background:var(--green);color:#07120f;border-color:var(--green)}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(225px,1fr));gap:16px}
-.card{
-  background:var(--panel);border:1px solid var(--border);
-  border-radius:15px;padding:21px;display:flex;flex-direction:column;
-  min-width:0;transition:border-color .2s,transform .2s
-}
-.card:hover{border-color:var(--green);transform:translateY(-3px)}
-.icon{font-size:31px;margin-bottom:9px}
-.tag{font-size:11px;color:var(--green);text-transform:uppercase;letter-spacing:1px}
-.card h3{margin:7px 0}
-.card p{color:var(--muted);font-size:14px;margin:0 0 18px}
-.card a.link{margin-top:auto;color:var(--green);font-weight:bold;text-decoration:none}
-.card a.link:hover{text-decoration:underline}
-.notice{
-  padding:22px;border:1px dashed #35445a;border-radius:12px;
-  color:var(--muted);background:var(--panel)
-}
-.ad-slot{
-  text-align:center;padding:22px;margin:15px 0;
-  border:1px dashed #35445a;border-radius:12px;color:#8290a6;font-size:12px
-}
-.share-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}
-footer{border-top:1px solid var(--border);padding:30px 5%;text-align:center;color:var(--muted);font-size:13px}
-footer a{color:var(--green);text-decoration:none;margin:0 7px}
-#results-count{font-size:13px;color:var(--muted);margin-bottom:15px}
-.hidden{display:none!important}
-@media(max-width:520px){
- header{align-items:flex-start;flex-direction:column}
- nav{gap:12px}
- .hero{padding-top:52px}
- section{padding:30px 5%}
-}
-</style>
-</head>
-
-<body>
-<header>
-  <a class="logo" href="#" style="text-decoration:none">Money<span>-Link</span></a>
-  <nav>
-    <a href="#discover">Discover</a>
-    <a href="#digital">Digital Tools</a>
-    <a href="#products">Products</a>
-    <a href="#about">About</a>
-  </nav>
-</header>
-
-<main>
-  <div class="hero">
-    <div class="badge">🌍 DISCOVER SOMETHING NEW</div>
-    <h1>Your Next Favourite Thing<br><span>Is Waiting Here.</span></h1>
-    <p>Explore useful websites, creative tools, trending gadgets and interesting finds from around the world.</p>
-    <a class="button" href="#discover">Start Exploring →</a>
-    <div class="search-wrap">
-      <input id="search" type="search"
-        placeholder="🔎 Search tools, gadgets, products..."
-        aria-label="Search discoveries">
-    </div>
-  </div>
-
-  <section id="discover">
-    <div class="section-head">
-      <h2>Explore Discoveries ✨</h2>
-      <p>Find something useful, interesting or worth sharing.</p>
-    </div>
-
-    <div class="filters">
-      <button class="filter active" data-filter="all">Everything</button>
-      <button class="filter" data-filter="digital">Digital Tools</button>
-      <button class="filter" data-filter="physical">Physical Products</button>
-      <button class="filter" data-filter="learning">Learning</button>
-    </div>
-
-    <div id="results-count" aria-live="polite"></div>
-
-    <div class="grid" id="catalog">
-
-      <!-- DIGITAL TOOLS -->
-      <article class="card" data-category="digital">
-        <div class="icon">🤖</div>
-        <span class="tag">AI Tool</span>
-        <h3>ChatGPT</h3>
-        <p>Explore AI for brainstorming, writing, learning and everyday questions.</p>
-        <a class="link" href="https://chatgpt.com/" target="_blank" rel="noopener noreferrer">Explore ChatGPT ↗</a>
-      </article>
-
-      <article class="card" data-category="digital">
-        <div class="icon">🎨</div>
-        <span class="tag">Design</span>
-        <h3>Canva</h3>
-        <p>Create designs, presentations, posters and social media graphics.</p>
-        <a class="link" href="https://www.canva.com/" target="_blank" rel="noopener noreferrer">Explore Canva ↗</a>
-      </article>
-
-      <article class="card" data-category="digital">
-        <div class="icon">🎬</div>
-        <span class="tag">Video Editing</span>
-        <h3>CapCut</h3>
-        <p>Discover video editing features for social content and creative projects.</p>
-        <a class="link" href="https://www.capcut.com/" target="_blank" rel="noopener noreferrer">Explore CapCut ↗</a>
-      </article>
-
-      <article class="card" data-category="digital">
-        <div class="icon">📝</div>
-        <span class="tag">Productivity</span>
-        <h3>Notion</h3>
-        <p>Organise notes, tasks, projects and ideas in one workspace.</p>
-        <a class="link" href="https://www.notion.so/" target="_blank" rel="noopener noreferrer">Explore Notion ↗</a>
-      </article>
-
-      <article class="card" data-category="digital">
-        <div class="icon">📈</div>
-        <span class="tag">Research</span>
-        <h3>Google Trends</h3>
-        <p>Explore search interest and discover topics people are looking for.</p>
-        <a class="link" href="https://trends.google.com/trends/" target="_blank" rel="noopener noreferrer">Explore Trends ↗</a>
-      </article>
-
-      <article class="card" data-category="digital">
-        <div class="icon">🖼️</div>
-        <span class="tag">Image Tool</span>
-        <h3>Remove.bg</h3>
-        <p>Remove image backgrounds with an online image editing tool.</p>
-        <a class="link" href="https://www.remove.bg/" target="_blank" rel="noopener noreferrer">Explore Tool ↗</a>
-      </article>
-
-      <!-- LEARNING -->
-      <article class="card" data-category="learning">
-        <div class="icon">📚</div>
-        <span class="tag">Education</span>
-        <h3>Khan Academy</h3>
-        <p>Access free educational lessons and practice across many subjects.</p>
-        <a class="link" href="https://www.khanacademy.org/" target="_blank" rel="noopener noreferrer">Start Learning ↗</a>
-      </article>
-
-      <article class="card" data-category="learning">
-        <div class="icon">💻</div>
-        <span class="tag">Coding</span>
-        <h3>freeCodeCamp</h3>
-        <p>Learn web development and programming through free lessons.</p>
-        <a class="link" href="https://www.freecodecamp.org/" target="_blank" rel="noopener noreferrer">Learn Coding ↗</a>
-      </article>
-
-      <!-- PHYSICAL PRODUCTS: GENERAL SHOPPING LINKS -->
-      <article class="card" data-category="physical">
-        <div class="icon">🎧</div>
-        <span class="tag">Gadgets</span>
-        <h3>Wireless Earbuds</h3>
-        <p>Browse wireless earbuds in different styles and price ranges.</p>
-        <a class="link" href="https://www.amazon.com/s?k=wireless+earbuds" target="_blank" rel="noopener noreferrer">Browse Earbuds ↗</a>
-      </article>
-
-      <article class="card" data-category="physical">
-        <div class="icon">🔋</div>
-        <span class="tag">Accessories</span>
-        <h3>Power Banks</h3>
-        <p>Explore portable chargers for phones and other devices.</p>
-        <a class="link" href="https://www.amazon.com/s?k=portable+power+bank" target="_blank" rel="noopener noreferrer">Browse Power Banks ↗</a>
-      </article>
-
-      <article class="card" data-category="physical">
-        <div class="icon">🧑‍💻</div>
-        <span class="tag">Workspace</span>
-        <h3>Phone Accessories</h3>
-        <p>Find phone stands, holders and accessories for everyday use.</p>
-        <a class="link" href="https://www.amazon.com/s?k=phone+accessories" target="_blank" rel="noopener noreferrer">Browse Accessories ↗</a>
-      </article>
-
-      <article class="card" data-category="physical">
-        <div class="icon">🏠</div>
-        <span class="tag">Home Finds</span>
-        <h3>Useful Home Gadgets</h3>
-        <p>Browse handy kitchen and home products worth discovering.</p>
-        <a class="link" href="https://www.amazon.com/s?k=useful+home+gadgets" target="_blank" rel="noopener noreferrer">Browse Gadgets ↗</a>
-      </article>
-
-    </div>
-
-    <p class="muted" style="font-size:12px;margin-top:17px">
-      Shopping availability, prices, delivery and shipping costs vary by country.
-    </p>
-  </section>
-
-  <!-- AD SPACE: DOES NOT DISPLAY ADS UNTIL A PROVIDER IS APPROVED AND INSTALLED -->
-  <section>
-    <div class="ad-slot">
-      ADVERTISEMENT SPACE<br>
-      Ads can appear here after an advertising provider approves the website
-      and its official ad code is installed.
-    </div>
-  </section>
-
-  <section id="products">
-    <div class="section-head">
-      <h2>🛍️ More Products Worth Exploring</h2>
-      <p>Browse additional product categories on shopping websites.</p>
-    </div>
-    <div class="grid">
-      <article class="card">
-        <div class="icon">⌚</div>
-        <h3>Smartwatches</h3>
-        <p>Explore watches with fitness, notification and everyday features.</p>
-        <a class="link" href="https://www.amazon.com/s?k=smartwatch" target="_blank" rel="noopener noreferrer">Explore Watches ↗</a>
-      </article>
-      <article class="card">
-        <div class="icon">🎒</div>
-        <h3>Bags & Backpacks</h3>
-        <p>Browse bags for school, travel and everyday use.</p>
-        <a class="link" href="https://www.amazon.com/s?k=backpacks" target="_blank" rel="noopener noreferrer">Explore Bags ↗</a>
-      </article>
-      <article class="card">
-        <div class="icon">🛒</div>
-        <h3>Global Product Finds</h3>
-        <p>Search a wide selection of gadgets and accessories on AliExpress.</p>
-        <a class="link" href="https://www.aliexpress.com/" target="_blank" rel="noopener noreferrer">Explore AliExpress ↗</a>
-      </article>
-    </div>
-  </section>
-
-  <section id="share">
-    <div class="section-head">
-      <h2>📲 Share Money-Link</h2>
-      <p>Know someone who loves discovering useful things? Share the website.</p>
-    </div>
-    <div class="share-row">
-      <button class="button" id="share-btn" type="button">Share Website ↗</button>
-      <button class="button secondary" id="copy-btn" type="button">Copy Website Link</button>
-    </div>
-    <p id="share-status" class="muted" style="margin-top:12px" aria-live="polite"></p>
-  </section>
-
-  <section id="about">
-    <div class="section-head">
-      <h2>🌍 About Money-Link</h2>
-      <p>Discover useful tools and interesting finds from around the world.</p>
-    </div>
-    <div class="notice">
-      Money-Link is a discovery website that brings together useful digital tools,
-      learning resources and product searches. We aim to make discovering your next
-      useful resource easier.
-    </div>
-  </section>
-
-  <section id="disclosure">
-    <div class="section-head">
-      <h2>💚 Affiliate Disclosure</h2>
-    </div>
-    <p class="muted">
-      Some links may become affiliate links in the future. If that happens,
-      Money-Link may earn a commission from qualifying purchases at no additional
-      cost to the buyer. Affiliate links will be identified appropriately.
-      Currently, the shopping links on this page are ordinary links and are not
-      configured to earn commissions.
-    </p>
-  </section>
-
-  <section id="privacy">
-    <div class="section-head"><h2>🔒 Privacy</h2></div>
-    <p class="muted">
-      This version of Money-Link does not provide user accounts, collect email
-      sign-ups or run its own analytics. External websites may have their own
-      privacy practices when you follow their links. A complete privacy policy
-      should be added before introducing tracking, forms, advertising or other
-      data collection.
-    </p>
-  </section>
-</main>
-
-<footer>
-  <p>© 2026 Money-Link · Discover something worth sharing.</p>
-  <p style="margin-top:10px">
-    <a href="#about">About</a>
-    <a href="#disclosure">Affiliate Disclosure</a>
-    <a href="#privacy">Privacy</a>
-    <a href="#share">Share</a>
-  </p>
-  <p style="margin-top:10px">Built for curious people everywhere 🌍</p>
-</footer>
-
-<script>
-const search = document.getElementById('search');
-const cards = [...document.querySelectorAll('#catalog .card')];
-const filters = [...document.querySelectorAll('.filter')];
-const count = document.getElementById('results-count');
-let currentFilter = 'all';
-
-function updateCards() {
-  const query = search.value.trim().toLowerCase();
-  let visible = 0;
-
-  cards.forEach(card => {
-    const category = card.dataset.category;
-    const matchesCategory =
-      currentFilter === 'all' || category === currentFilter;
-    const matchesSearch = card.innerText.toLowerCase().includes(query);
-    const show = matchesCategory && matchesSearch;
-
-    card.classList.toggle('hidden', !show);
-    if (show) visible++;
-  });
-
-  count.textContent = visible + (visible === 1 ? ' discovery found' : ' discoveries found');
+  --blue:#087cf0;
+  --black:#07111f;
+  --green:#26d07c;
+  --yellow:#ffd447;
+  --bg:#07111f;
+  --card:#122239;
+  --text:#f0f6ff;
+  --muted:#a9bad0;
+  --border:#293d56;
 }
 
-search.addEventListener('input', updateCards);
+* { box-sizing:border-box; }
 
-filters.forEach(button => {
-  button.addEventListener('click', () => {
-    currentFilter = button.dataset.filter;
-    filters.forEach(item => item.classList.toggle('active', item === button));
-    updateCards();
-  });
-});
+body {
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.6;
+}
 
-document.getElementById('share-btn').addEventListener('click', async () => {
-  const status = document.getElementById('share-status');
-  const data = {
-    title: 'Money-Link',
-    text: 'Discover useful digital tools and interesting products!',
-    url: location.href
-  };
+a { color:inherit;text-decoration:none; }
 
-  try {
-    if (navigator.share) {
-      await navigator.share(data);
-    } else {
-      await navigator.clipboard.writeText(location.href);
-      status.textContent = 'Website link copied. Share it with your friends!';
-    }
-  } catch (error) {
-    if (error.name !== 'AbortError') {
-      status.textContent = 'Copy the website address from your browser to share it.';
-    }
-  }
-});
+button,input {
+  font:inherit;
+}
 
-document.getElementById('copy-btn').addEventListener('click', async () => {
-  const status = document.getElementById('share-status');
-  try {
-    await navigator.clipboard.writeText(location.href);
-    status.textContent = 'Website link copied successfully!';
-  } catch (error) {
-    status.textContent = 'Copy the website address from your browser address bar.';
-  }
-});
+button {
+  cursor:pointer;
+}
 
-updateCards();
-</script>
-</body>
-</html>
+header {
+  position:sticky;
+  top:0;
+  z-index:10;
+  background:#07111ff5;
+  border-bottom:1px solid var(--border);
+  padding:14px 5%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+}
+
+.logo {
+  font-size:24px;
+  font-weight:900;
+}
+
+.logo span { color:var(--green); }
+
+.menu {
+  background:var(--card);
+  color:var(--text);
+  border:1px solid var(--border);
+  padding:9px 12px;
+  border-radius:10px;
+}
+
+nav {
+  display:none;
+  position:absolute;
+  top:65px;
+  right:5%;
+  left:5%;
+  background:var(--card);
+  padding:15px;
+  border:1px solid var(--border);
+  border-radius:14px;
+}
+
+nav.open {
+  display:grid;
+  gap:12px;
+}
+
+nav a:hover { color:var(--green); }
+
+.hero {
+  padding:65px 6% 45px;
+  background:radial-gradient(ellipse at top left,#087cf044,transparent 65%);
+}
+
+.label {
+  color:var(--green);
+  font-weight:bold;
+  letter-spacing:2px;
+  font-size:12px;
+}
+
+h1 {
+  font-size:clamp(38px,8vw,68px);
+  line-height:1.08;
+  margin:15px 0;
+}
+
+h1 span { color:var(--blue); }
+
+p { color:var(--muted); }
+
+.hero p {
+  max-width:600px;
+  font-size:17px;
+}
+
+.search {
+  display:flex;
+  gap:8px;
+  margin-top:25px;
+  max-width:650px;
+  flex-wrap:wrap;
+}
+
+.search input {
+  flex:1;
+  min-width:180px;
+  background:var(--card);
+  color:var(--text);
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:14px;
+}
+
+.btn {
+  background:var(--blue);
+  color:white;
+  border:0;
+  border-radius:11px;
+  padding:12px 17px;
+  font-weight:bold;
+}
+
+.btn:hover { filter:brightness(1.15); }
+
+.yellow { color:var(--yellow); }
+
+section { padding:35px 5%; }
+
+.section-title {
+  font-size:27px;
+  margin-bottom:5px;
+}
+
+.categories {
+  display:flex;
+  gap:9px;
+  overflow-x:auto;
+  padding:12px 0 18px;
+}
+
+.chip {
+  white-space:nowrap;
+  padding:9px 14px;
+  border:1px solid var(--border);
+  border-radius:30px;
+  background:var(--card);
+  color:var(--text);
+}
+
+.chip.active {
+  background:var(--blue);
+  border-color:var(--blue);
+}
+
+.grid {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:13px;
+}
+
+.card {
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:17px;
+  overflow:hidden;
+  transition:.2s;
+}
+
+.card:hover {
+  transform:translateY(-4px);
+  border-color:var(--blue);
+}
+
+.product-image {
+  height:120px;
+  display:grid;
+  place-items:center;
+  background:linear-gradient(135deg,#123d65,#102238);
+  font-size:49px;
+  position:relative;
+}
+
+.heart {
+  position:absolute;
+  right:9px;
+  top:9px;
+  border:0;
+  background:#07111fdc;
+  color
