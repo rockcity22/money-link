@@ -206,4 +206,492 @@ section { padding:35px 5%; }
   top:9px;
   border:0;
   background:#07111fdc;
-  color
+  color:white;
+  border-radius:50%;
+  width:34px;
+  height:34px;
+  font-size:19px;
+}
+
+.heart.saved { color:#ff6285; }
+
+.card-content { padding:12px; }
+
+.card h3 {
+  font-size:16px;
+  margin:0;
+}
+
+.card p {
+  font-size:13px;
+  margin:7px 0;
+}
+
+.small {
+  font-size:12px;
+  color:var(--muted);
+}
+
+.card .btn {
+  display:inline-block;
+  font-size:12px;
+  padding:9px 10px;
+  margin-top:7px;
+}
+
+.tools {
+  display:grid;
+  gap:12px;
+}
+
+.tool {
+  padding:17px;
+  border:1px solid var(--border);
+  border-radius:15px;
+  background:var(--card);
+}
+
+.tool h3 { margin:0; }
+
+.tool-icon {
+  font-size:28px;
+  margin-bottom:7px;
+}
+
+.tool a {
+  color:var(--green);
+  font-weight:bold;
+}
+
+.feature-grid {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px;
+}
+
+.feature {
+  background:var(--card);
+  padding:15px;
+  border-radius:14px;
+  border:1px solid var(--border);
+}
+
+footer {
+  margin-top:25px;
+  padding:35px 6%;
+  border-top:1px solid var(--border);
+  background:#050b14;
+}
+
+footer a {
+  display:inline-block;
+  margin:5px 10px 5px 0;
+}
+
+.notice {
+  font-size:12px;
+  border:1px solid #66551e;
+  background:#282414;
+  color:#ffe7a0;
+  padding:13px;
+  border-radius:12px;
+}
+
+.light {
+  --bg:#eaf2fc;
+  --card:#ffffff;
+  --text:#10223a;
+  --muted:#526780;
+  --border:#cad8e9;
+}
+
+.light header { background:#eaf2fcf5; }
+.light footer { background:#dbe7f6; }
+
+@media(min-width:750px) {
+  header { padding:15px 6%; }
+  .menu { display:none; }
+  nav {
+    display:flex;
+    position:static;
+    padding:0;
+    border:0;
+    background:transparent;
+    gap:20px;
+  }
+  .grid { grid-template-columns:repeat(4,minmax(0,1fr)); }
+  .product-image { height:160px; }
+  .tools { grid-template-columns:repeat(3,minmax(0,1fr)); }
+  .feature-grid { grid-template-columns:repeat(4,minmax(0,1fr)); }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <a class="logo" href="#home">Money-<span>Link</span></a>
+
+  <button class="menu" id="menuBtn">☰ Menu</button>
+
+  <nav id="nav">
+    <a href="#discover">Discover</a>
+    <a href="#tools">Digital Tools</a>
+    <a href="#free">Free Stuff</a>
+    <a href="#features">Features</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<main>
+
+<section class="hero" id="home">
+  <div class="label">✦ DISCOVER SOMETHING AMAZING</div>
+
+  <h1>Find your next<br>
+    <span>great discovery.</span>
+  </h1>
+
+  <p>
+    Explore useful products, clever digital tools and free resources
+    from around the world. Discover more and make smarter choices.
+  </p>
+
+  <div class="search">
+    <input id="searchInput"
+      placeholder="Search products and categories...">
+    <button class="btn" id="searchBtn">Search ↗</button>
+    <button class="btn" id="surpriseBtn">🎲 Surprise me</button>
+  </div>
+
+  <p>💚 Useful finds. 🌍 Worldwide discovery. 💙 One place.</p>
+</section>
+
+<section id="discover">
+  <h2 class="section-title">🔥 Discover Products</h2>
+  <p>Explore ideas for your everyday life, study and entertainment.</p>
+
+  <div class="categories" id="categories">
+    <button class="chip active" data-cat="All">✨ All</button>
+    <button class="chip" data-cat="Electronics">📱 Electronics</button>
+    <button class="chip" data-cat="Audio">🎧 Audio</button>
+    <button class="chip" data-cat="Fashion">👟 Fashion</button>
+    <button class="chip" data-cat="Home">🏠 Home</button>
+    <button class="chip" data-cat="Gaming">🎮 Gaming</button>
+    <button class="chip" data-cat="Accessories">🔌 Accessories</button>
+  </div>
+
+  <div class="grid" id="productGrid"></div>
+</section>
+
+<section id="tools">
+  <h2 class="section-title">🤖 Digital Tools</h2>
+  <p>Useful websites for creating, learning and getting things done.</p>
+  <div class="tools" id="toolGrid"></div>
+</section>
+
+<section id="free">
+  <h2 class="section-title">🎁 Free Stuff</h2>
+  <p>Explore free learning resources and useful online tools.</p>
+
+  <div class="tools">
+    <article class="tool">
+      <div class="tool-icon">📚</div>
+      <h3>Khan Academy</h3>
+      <p>Learn different subjects through free lessons.</p>
+      <a href="https://www.khanacademy.org/"
+         target="_blank" rel="noopener noreferrer">Visit website ↗</a>
+    </article>
+
+    <article class="tool">
+      <div class="tool-icon">💻</div>
+      <h3>freeCodeCamp</h3>
+      <p>Learn programming with free lessons and projects.</p>
+      <a href="https://www.freecodecamp.org/"
+         target="_blank" rel="noopener noreferrer">Visit website ↗</a>
+    </article>
+
+    <article class="tool">
+      <div class="tool-icon">🎨</div>
+      <h3>Photopea</h3>
+      <p>Edit images online with a browser-based editor.</p>
+      <a href="https://www.photopea.com/"
+         target="_blank" rel="noopener noreferrer">Visit website ↗</a>
+    </article>
+  </div>
+</section>
+
+<section id="features">
+  <h2 class="section-title">✨ More Ways to Discover</h2>
+
+  <div class="feature-grid">
+    <div class="feature">❤️<br><b>Favorites</b><p>Save products on this device.</p></div>
+    <div class="feature">🎲<br><b>Surprise Me</b><p>Find a random product idea.</p></div>
+    <div class="feature">🔎<br><b>Smart Search</b><p>Search product names and categories.</p></div>
+    <div class="feature">🌙<br><b>Appearance</b><p>Switch between dark and light modes.</p></div>
+    <div class="feature">🌍<br><b>Worldwide</b><p>Explore links to international services.</p></div>
+    <div class="feature">💚<br><b>Free Resources</b><p>Find useful free websites.</p></div>
+    <div class="feature">📲<br><b>Share</b><p>Share Money-Link with friends.</p></div>
+    <div class="feature">🛡️<br><b>Shop Carefully</b><p>Check sellers before buying.</p></div>
+  </div>
+
+  <p style="margin-top:20px">
+    <button class="btn" id="themeBtn">🌙 Switch appearance</button>
+    <button class="btn" id="shareBtn">📲 Share website</button>
+    <button class="btn" id="favoritesBtn">❤️ My favorites (<span id="favCount">0</span>)</button>
+  </p>
+
+  <div id="favoritesList"></div>
+</section>
+
+<section id="contact">
+  <h2 class="section-title">📞 Contact Money-Link</h2>
+  <div class="tools">
+    <article class="tool">
+      <h3>📧 Email</h3>
+      <p>Questions, suggestions and business enquiries.</p>
+      <a href="mailto:sudaisnaeem22222@gmail.com">Send an email ↗</a>
+    </article>
+
+    <article class="tool">
+      <h3>💬 WhatsApp</h3>
+      <p>Contact us through WhatsApp.</p>
+      <a href="https://wa.me/256768271617"
+         target="_blank" rel="noopener noreferrer">Chat on WhatsApp ↗</a>
+    </article>
+
+    <article class="tool">
+      <h3>📱 Phone</h3>
+      <p>Choose a phone contact.</p>
+      <a href="tel:+256768271617">Call MTN</a><br>
+      <a href="tel:+256752795937">Call Airtel</a>
+    </article>
+  </div>
+</section>
+
+<section>
+  <div class="notice">
+    Important: Product cards are discovery examples, not verified live listings.
+    Prices, ratings, discounts, stock and delivery details must be checked with
+    the seller. Some external links are ordinary links, not affiliate links.
+    Money-Link does not currently process orders or payments.
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="logo">Money-<span>Link</span></div>
+  <p>Discover more. Spend smarter.</p>
+
+  <a href="#home">Home</a>
+  <a href="#discover">Products</a>
+  <a href="#tools">Digital Tools</a>
+  <a href="#free">Free Stuff</a>
+  <a href="#contact">Contact</a>
+
+  <p>© <span id="year"></span> Money-Link</p>
+</footer>
+
+<script>
+const products = [
+ {name:"Wireless Earbuds",cat:"Audio",icon:"🎧",desc:"Explore wireless audio options.",q:"wireless earbuds"},
+ {name:"Smartwatch",cat:"Electronics",icon:"⌚",desc:"Discover smart wearable technology.",q:"smartwatch"},
+ {name:"Everyday Backpack",cat:"Fashion",icon:"🎒",desc:"Ideas for school, work and travel.",q:"everyday backpack"},
+ {name:"Portable Speaker",cat:"Audio",icon:"🔊",desc:"Explore portable sound options.",q:"portable bluetooth speaker"},
+ {name:"Charging Accessories",cat:"Accessories",icon:"🔌",desc:"Find compatible charging gear.",q:"USB C fast charger"},
+ {name:"Wireless Keyboard",cat:"Accessories",icon:"⌨️",desc:"Upgrade your desk setup.",q:"wireless keyboard"},
+ {name:"Desk Lamp",cat:"Home",icon:"💡",desc:"Lighting ideas for studying.",q:"LED desk lamp"},
+ {name:"Gaming Controller",cat:"Gaming",icon:"🎮",desc:"Explore controllers for your platform.",q:"gaming controller"},
+ {name:"Everyday Sneakers",cat:"Fashion",icon:"👟",desc:"Discover casual footwear styles.",q:"everyday sneakers"},
+ {name:"Reusable Bottle",cat:"Home",icon:"🧴",desc:"An everyday reusable bottle.",q:"reusable water bottle"},
+ {name:"Phone Stand",cat:"Accessories",icon:"📱",desc:"A handy addition to your desk.",q:"adjustable phone stand"},
+ {name:"Gaming Headset",cat:"Gaming",icon:"🎮",desc:"Explore gaming audio options.",q:"gaming headset"}
+];
+
+const digitalTools = [
+ {name:"ChatGPT",icon:"🤖",desc:"AI help for ideas and learning.",url:"https://chatgpt.com/"},
+ {name:"Canva",icon:"🎨",desc:"Create graphics and presentations.",url:"https://www.canva.com/"},
+ {name:"CapCut",icon:"🎬",desc:"Edit videos and social content.",url:"https://www.capcut.com/"},
+ {name:"Google Trends",icon:"📈",desc:"Explore search trends.",url:"https://trends.google.com/trends/"},
+ {name:"Remove.bg",icon:"🪄",desc:"Remove image backgrounds.",url:"https://www.remove.bg/"},
+ {name:"Notion",icon:"🗂️",desc:"Organize tasks, notes and projects.",url:"https://www.notion.so/"}
+];
+
+let activeCategory = "All";
+let query = "";
+
+function getFavorites() {
+  try { return JSON.parse(localStorage.getItem("ml_favorites") || "[]"); }
+  catch(e) { return []; }
+}
+
+function saveFavorites(list) {
+  try { localStorage.setItem("ml_favorites", JSON.stringify(list)); }
+  catch(e) {}
+}
+
+function renderProducts() {
+  const favorites = getFavorites();
+
+  const list = products.filter(p =>
+    (activeCategory === "All" || p.cat === activeCategory) &&
+    (p.name + " " + p.cat + " " + p.desc)
+      .toLowerCase().includes(query.toLowerCase())
+  );
+
+  document.getElementById("productGrid").innerHTML = list.map(p => `
+    <article class="card">
+      <div class="product-image">
+        ${p.icon}
+        <button class="heart ${favorites.includes(p.name) ? "saved" : ""}"
+          data-heart="${p.name}" aria-label="Save ${p.name}">
+          ${favorites.includes(p.name) ? "♥" : "♡"}
+        </button>
+      </div>
+      <div class="card-content">
+        <h3>${p.name}</h3>
+        <p>${p.desc}</p>
+        <div class="small">Current price: check seller</div>
+        <a class="btn" href="https://www.google.com/search?tbm=shop&q=${encodeURIComponent(p.q)}"
+          target="_blank" rel="noopener noreferrer">Explore options ↗</a>
+      </div>
+    </article>
+  `).join("") || "<p>No matches found. Try another search.</p>";
+
+  document.getElementById("favCount").textContent = favorites.length;
+}
+
+function renderTools() {
+  document.getElementById("toolGrid").innerHTML = digitalTools.map(t => `
+    <article class="tool">
+      <div class="tool-icon">${t.icon}</div>
+      <h3>${t.name}</h3>
+      <p>${t.desc}</p>
+      <a href="${t.url}" target="_blank" rel="noopener noreferrer">
+        Visit official website ↗
+      </a>
+    </article>
+  `).join("");
+}
+
+document.getElementById("categories").addEventListener("click", e => {
+  const button = e.target.closest("[data-cat]");
+  if (!button) return;
+
+  activeCategory = button.dataset.cat;
+
+  document.querySelectorAll(".chip").forEach(chip =>
+    chip.classList.toggle("active", chip === button)
+  );
+
+  renderProducts();
+});
+
+document.getElementById("searchBtn").onclick = () => {
+  query = document.getElementById("searchInput").value.trim();
+  renderProducts();
+  document.getElementById("discover").scrollIntoView({behavior:"smooth"});
+};
+
+document.getElementById("searchInput").addEventListener("keydown", e => {
+  if (e.key === "Enter") document.getElementById("searchBtn").click();
+});
+
+document.getElementById("productGrid").addEventListener("click", e => {
+  const button = e.target.closest("[data-heart]");
+  if (!button) return;
+
+  let favorites = getFavorites();
+  const name = button.dataset.heart;
+
+  favorites = favorites.includes(name)
+    ? favorites.filter(item => item !== name)
+    : [...favorites, name];
+
+  saveFavorites(favorites);
+  renderProducts();
+});
+
+document.getElementById("favoritesBtn").onclick = () => {
+  const favorites = getFavorites();
+
+  document.getElementById("favoritesList").innerHTML = favorites.length
+    ? "<h3>Your saved products</h3><p>" +
+      favorites.map(name => "❤️ " + name).join("<br>") +
+      "</p>"
+    : "<p>No favorites saved yet. Tap a heart on a product to save it.";
+
+  document.getElementById("favoritesList")
+    .scrollIntoView({behavior:"smooth"});
+};
+
+document.getElementById("surpriseBtn").onclick = () => {
+  const list = products.filter(p =>
+    (activeCategory === "All" || p.cat === activeCategory) &&
+    (p.name + " " + p.cat + " " + p.desc)
+      .toLowerCase().includes(query.toLowerCase())
+  );
+
+  if (!list.length) {
+    alert("No matching products. Try another search!");
+    return;
+  }
+
+  const pick = list[Math.floor(Math.random() * list.length)];
+
+  alert("🎲 Your surprise find: " + pick.name + "\n" + pick.desc);
+
+  window.open(
+    "https://www.google.com/search?tbm=shop&q=" +
+    encodeURIComponent(pick.q),
+    "_blank",
+    "noopener"
+  );
+};
+
+document.getElementById("menuBtn").onclick = () => {
+  document.getElementById("nav").classList.toggle("open");
+};
+
+document.querySelectorAll("#nav a").forEach(link => {
+  link.onclick = () => document.getElementById("nav").classList.remove("open");
+});
+
+document.getElementById("themeBtn").onclick = () => {
+  document.body.classList.toggle("light");
+  try {
+    localStorage.setItem(
+      "ml_light",
+      document.body.classList.contains("light") ? "1" : "0"
+    );
+  } catch(e) {}
+};
+
+try {
+  if (localStorage.getItem("ml_light") === "1")
+    document.body.classList.add("light");
+} catch(e) {}
+
+document.getElementById("shareBtn").onclick = async () => {
+  try {
+    if (navigator.share) {
+      await navigator.share({
+        title:"Money-Link",
+        text:"Discover useful products and digital tools on Money-Link!",
+        url:location.href
+      });
+    } else {
+      alert("Copy this website's address from your browser and share it!");
+    }
+  } catch(e) {}
+};
+
+document.getElementById("year").textContent = new Date().getFullYear();
+
+renderProducts();
+renderTools();
+</script>
+
+</body>
+</html>
