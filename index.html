@@ -3,156 +3,109 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Discover useful websites, exciting offers, interesting finds and products worth exploring.">
+<meta name="description" content="Discover useful websites, trending products, digital tools and amazing finds from around the world.">
 <title>Money-Link | Discover More</title>
 
 <style>
-*{box-sizing:border-box}
-body{margin:0;font-family:Arial,sans-serif;background:#0b1020;color:#f5f7ff}
-header{padding:20px 6%;display:flex;justify-content:space-between;align-items:center;background:#121a30}
-.logo{font-size:24px;font-weight:bold;color:#57e3b0}
-nav a{color:white;text-decoration:none;margin-left:14px;font-size:14px}
-.hero{text-align:center;padding:65px 20px 45px;background:linear-gradient(140deg,#152a49,#26154b)}
-.hero h1{font-size:38px;margin:0 0 15px}
-.hero p{color:#c9d2e8;line-height:1.6}
-.button{display:inline-block;padding:13px 20px;background:#57e3b0;color:#08131a;text-decoration:none;border-radius:9px;font-weight:bold;margin:8px 4px}
-section{padding:30px 6%}
-h2{margin-bottom:20px}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,sans-serif;background:#080d19;color:#f5f7ff;line-height:1.6}
+header{padding:20px 6%;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #222b3d}
+.logo{font-size:25px;font-weight:900;color:#65f0b5}
+.logo span{color:white}
+nav a{color:#cbd3e3;text-decoration:none;margin-left:15px;font-size:14px}
+.hero{text-align:center;padding:75px 20px 55px;background:radial-gradient(ellipse at top,#193b47,#080d19 70%)}
+.badge{display:inline-block;border:1px solid #315b59;color:#65f0b5;border-radius:30px;padding:7px 14px;font-size:12px;margin-bottom:20px}
+h1{font-size:clamp(36px,7vw,62px);line-height:1.1;margin-bottom:20px}
+h1 span{color:#65f0b5}
+.hero p{color:#b5bfd0;max-width:550px;margin:0 auto 28px}
+.button{display:inline-block;background:#65f0b5;color:#07120f;padding:13px 22px;border-radius:9px;text-decoration:none;font-weight:bold}
+section{padding:40px 6%}
+.section-title{font-size:27px;margin-bottom:8px}
+.sub{color:#9ba8bd;margin-bottom:25px}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
-.card{background:#151e34;border:1px solid #293652;border-radius:14px;padding:20px}
-.card h3{margin-top:0}
-.card p{color:#c5cee1;line-height:1.6}
-.card a{color:#57e3b0}
-.adbox{border:1px dashed #65718c;text-align:center;padding:25px;border-radius:10px;color:#abb7d0}
-input{width:100%;padding:12px;margin:7px 0;border-radius:7px;border:1px solid #43506b;background:#0b1020;color:white}
-button{cursor:pointer;border:0}
-footer{text-align:center;padding:28px;color:#aab5ca;background:#121a30;line-height:1.8}
-footer a{color:#57e3b0;margin:0 7px}
-.small{font-size:12px;color:#aab5ca}
+.card{background:#111a2a;border:1px solid #263147;border-radius:16px;padding:23px;transition:.2s}
+.card:hover{transform:translateY(-4px);border-color:#65f0b5}
+.icon{font-size:32px;margin-bottom:13px}
+.card h3{margin-bottom:9px}
+.card p{color:#aab5c8;font-size:14px;margin-bottom:18px}
+.card a{color:#65f0b5;text-decoration:none;font-weight:bold}
+.notice{background:#111a2a;border:1px dashed #34415a;border-radius:14px;padding:22px;color:#aab5c8;text-align:center}
+footer{text-align:center;padding:30px 15px;border-top:1px solid #222b3d;color:#8793a8;font-size:13px}
+footer a{color:#65f0b5;text-decoration:none;margin:0 8px}
 </style>
 </head>
 
 <body>
 <header>
-  <div class="logo">Money-Link 💸</div>
-  <nav>
-    <a href="#discover">Discover</a>
-    <a href="#offers">Offers</a>
-    <a href="#share">Share</a>
-  </nav>
+  <div class="logo">Money<span>-Link</span></div>
+  <nav><a href="#discover">Discover</a><a href="#about">About</a></nav>
 </header>
 
+<main>
 <div class="hero">
-  <h1>Discover Something Worth Sharing 🌍</h1>
-  <p>Explore useful finds, interesting websites and offers from around the world.</p>
-  <a class="button" href="#discover">Start Exploring</a>
-  <a class="button" href="#share">Share With Friends</a>
+  <div class="badge">🌍 YOUR WORLD OF DISCOVERY</div>
+  <h1>Discover More.<br><span>Find Your Next Thing.</span></h1>
+  <p>Explore useful websites, digital tools, trending products and interesting finds from around the world.</p>
+  <a class="button" href="#discover">Explore Discoveries →</a>
 </div>
 
 <section id="discover">
-  <h2>✨ Discover</h2>
+  <h2 class="section-title">Explore the world ✨</h2>
+  <p class="sub">A few categories to get you started.</p>
+
   <div class="grid">
-    <div class="card">
-      <h3>🛍️ Interesting Finds</h3>
-      <p>Discover products and useful things worth checking out.</p>
-      <a href="#offers">Explore products →</a>
-    </div>
-    <div class="card">
-      <h3>🌐 Useful Websites</h3>
-      <p>Find online tools and resources that could make life easier.</p>
-      <a href="#offers">Explore resources →</a>
-    </div>
-    <div class="card">
-      <h3>🎁 Offers & Rewards</h3>
-      <p>Explore opportunities and offers from participating services.</p>
-      <a href="#offers">See opportunities →</a>
-    </div>
+    <article class="card">
+      <div class="icon">🛍️</div>
+      <h3>Trending Products</h3>
+      <p>Discover interesting products, clever gadgets and things worth checking out.</p>
+      <a href="#products">Explore products →</a>
+    </article>
+
+    <article class="card">
+      <div class="icon">💻</div>
+      <h3>Digital Tools</h3>
+      <p>Find online tools that can help with creativity, learning and everyday tasks.</p>
+      <a href="#tools">Explore tools →</a>
+    </article>
+
+    <article class="card">
+      <div class="icon">💡</div>
+      <h3>Useful Websites</h3>
+      <p>Discover websites and online resources you might not know about yet.</p>
+      <a href="#websites">Discover websites →</a>
+    </article>
   </div>
 </section>
 
-<section id="advertising">
-  <h2>📢 Advertisement</h2>
-  <div class="adbox">
-    Advertisement space
-    <p class="small">Ads will appear here after an advertising network approves the website and its ad code is installed.</p>
-  </div>
+<section id="products">
+  <h2 class="section-title">🛍️ Product Finds</h2>
+  <p class="sub">Interesting things to explore.</p>
+  <div class="notice">New product discoveries coming soon.</div>
 </section>
 
-<section id="offers">
-  <h2>💰 Offers & Recommendations</h2>
-  <div class="grid">
-    <div class="card">
-      <h3>Affiliate Products</h3>
-      <p>Recommended products will appear here when genuine affiliate partnerships are added.</p>
-      <span class="small">Affiliate links must be registered and configured first.</span>
-    </div>
-    <div class="card">
-      <h3>Referral Opportunities</h3>
-      <p>Discover participating services with legitimate referral programs.</p>
-      <span class="small">Referral links will be added after joining eligible programs.</span>
-    </div>
-  </div>
-  <p class="small">Some links may eventually earn us a commission. We will clearly disclose affiliate relationships.</p>
+<section id="tools">
+  <h2 class="section-title">💻 Digital Tools</h2>
+  <p class="sub">Useful online resources in one place.</p>
+  <div class="notice">New digital tools coming soon.</div>
 </section>
 
-<section id="share">
-  <h2>📲 Share Money-Link</h2>
-  <p>Found something useful? Share this website with your friends.</p>
-  <a class="button" id="whatsapp" href="#">Share on WhatsApp</a>
-  <a class="button" id="facebook" href="#" target="_blank" rel="noopener">Share on Facebook</a>
-  <button class="button" id="copy">Copy Website Link</button>
-  <p id="message" class="small" aria-live="polite"></p>
+<section id="websites">
+  <h2 class="section-title">🌐 Useful Websites</h2>
+  <p class="sub">Your next useful discovery could be one click away.</p>
+  <div class="notice">New website discoveries coming soon.</div>
 </section>
 
-<section id="subscribe">
-  <h2>📬 Stay Connected</h2>
-  <div class="card">
-    <p>Want to hear about new discoveries and offers?</p>
-    <form id="signup">
-      <input type="email" id="email" placeholder="Enter your email address" required>
-      <button class="button" type="submit">Join the List</button>
-    </form>
-    <p class="small" id="signupMessage">This demo form does not store or send email addresses yet.</p>
-  </div>
+<section id="about">
+  <h2 class="section-title">About Money-Link</h2>
+  <p class="sub">Money-Link is a discovery platform designed to help people find interesting products, digital tools and useful online resources worldwide.</p>
+  <div class="notice">We're building a better place to discover what's worth your attention.</div>
 </section>
+</main>
 
 <footer>
-  <p>© <span id="year"></span> Money-Link. All rights reserved.</p>
-  <a href="#about">About</a>
-  <a href="#privacy">Privacy</a>
-  <a href="#disclosure">Affiliate Disclosure</a>
-  <p id="about">Discover useful things and opportunities from around the world.</p>
-  <p id="privacy">Privacy: this initial version does not send your email or track visitors using analytics.</p>
-  <p id="disclosure">Affiliate Disclosure: we may earn commissions from qualifying purchases through disclosed affiliate links.</p>
+  <p>© 2026 Money-Link. Discover something new.</p>
+  <p style="margin-top:10px"><a href="#about">About</a> · <a href="#discover">Discover</a></p>
+  <p style="margin-top:10px">Some future links may earn us a commission when you make a qualifying purchase.</p>
 </footer>
-
-<script>
-const pageURL = window.location.href;
-const shareText = "Check out Money-Link for interesting finds and useful opportunities!";
-
-document.getElementById("year").textContent = new Date().getFullYear();
-
-document.getElementById("whatsapp").href =
-  "https://wa.me/?text=" + encodeURIComponent(shareText + " " + pageURL);
-
-document.getElementById("facebook").href =
-  "https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(pageURL);
-
-document.getElementById("copy").addEventListener("click", async () => {
-  const message = document.getElementById("message");
-  try {
-    await navigator.clipboard.writeText(pageURL);
-    message.textContent = "Website link copied!";
-  } catch {
-    message.textContent = "Copy your website address from your browser's address bar.";
-  }
-});
-
-document.getElementById("signup").addEventListener("submit", event => {
-  event.preventDefault();
-  document.getElementById("signupMessage").textContent =
-    "This demo does not save your email yet. A secure email signup service must be connected first.";
-});
-</script>
 </body>
 </html>
