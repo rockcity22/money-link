@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Discover useful websites, exciting offers, interesting finds and products worth exploring.">
+<title>Money-Link | Discover More</title>
+
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#0b1020;color:#f5f7ff}
+header{padding:20px 6%;display:flex;justify-content:space-between;align-items:center;background:#121a30}
+.logo{font-size:24px;font-weight:bold;color:#57e3b0}
+nav a{color:white;text-decoration:none;margin-left:14px;font-size:14px}
+.hero{text-align:center;padding:65px 20px 45px;background:linear-gradient(140deg,#152a49,#26154b)}
+.hero h1{font-size:38px;margin:0 0 15px}
+.hero p{color:#c9d2e8;line-height:1.6}
+.button{display:inline-block;padding:13px 20px;background:#57e3b0;color:#08131a;text-decoration:none;border-radius:9px;font-weight:bold;margin:8px 4px}
+section{padding:30px 6%}
+h2{margin-bottom:20px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+.card{background:#151e34;border:1px solid #293652;border-radius:14px;padding:20px}
+.card h3{margin-top:0}
+.card p{color:#c5cee1;line-height:1.6}
+.card a{color:#57e3b0}
+.adbox{border:1px dashed #65718c;text-align:center;padding:25px;border-radius:10px;color:#abb7d0}
+input{width:100%;padding:12px;margin:7px 0;border-radius:7px;border:1px solid #43506b;background:#0b1020;color:white}
+button{cursor:pointer;border:0}
+footer{text-align:center;padding:28px;color:#aab5ca;background:#121a30;line-height:1.8}
+footer a{color:#57e3b0;margin:0 7px}
+.small{font-size:12px;color:#aab5ca}
+</style>
+</head>
+
+<body>
+<header>
+  <div class="logo">Money-Link 💸</div>
+  <nav>
+    <a href="#discover">Discover</a>
+    <a href="#offers">Offers</a>
+    <a href="#share">Share</a>
+  </nav>
+</header>
+
+<div class="hero">
+  <h1>Discover Something Worth Sharing 🌍</h1>
+  <p>Explore useful finds, interesting websites and offers from around the world.</p>
+  <a class="button" href="#discover">Start Exploring</a>
+  <a class="button" href="#share">Share With Friends</a>
+</div>
+
+<section id="discover">
+  <h2>✨ Discover</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>🛍️ Interesting Finds</h3>
+      <p>Discover products and useful things worth checking out.</p>
+      <a href="#offers">Explore products →</a>
+    </div>
+    <div class="card">
+      <h3>🌐 Useful Websites</h3>
+      <p>Find online tools and resources that could make life easier.</p>
+      <a href="#offers">Explore resources →</a>
+    </div>
+    <div class="card">
+      <h3>🎁 Offers & Rewards</h3>
+      <p>Explore opportunities and offers from participating services.</p>
+      <a href="#offers">See opportunities →</a>
+    </div>
+  </div>
+</section>
+
+<section id="advertising">
+  <h2>📢 Advertisement</h2>
+  <div class="adbox">
+    Advertisement space
+    <p class="small">Ads will appear here after an advertising network approves the website and its ad code is installed.</p>
+  </div>
+</section>
+
+<section id="offers">
+  <h2>💰 Offers & Recommendations</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Affiliate Products</h3>
+      <p>Recommended products will appear here when genuine affiliate partnerships are added.</p>
+      <span class="small">Affiliate links must be registered and configured first.</span>
+    </div>
+    <div class="card">
+      <h3>Referral Opportunities</h3>
+      <p>Discover participating services with legitimate referral programs.</p>
+      <span class="small">Referral links will be added after joining eligible programs.</span>
+    </div>
+  </div>
+  <p class="small">Some links may eventually earn us a commission. We will clearly disclose affiliate relationships.</p>
+</section>
+
+<section id="share">
+  <h2>📲 Share Money-Link</h2>
+  <p>Found something useful? Share this website with your friends.</p>
+  <a class="button" id="whatsapp" href="#">Share on WhatsApp</a>
+  <a class="button" id="facebook" href="#" target="_blank" rel="noopener">Share on Facebook</a>
+  <button class="button" id="copy">Copy Website Link</button>
+  <p id="message" class="small" aria-live="polite"></p>
+</section>
+
+<section id="subscribe">
+  <h2>📬 Stay Connected</h2>
+  <div class="card">
+    <p>Want to hear about new discoveries and offers?</p>
+    <form id="signup">
+      <input type="email" id="email" placeholder="Enter your email address" required>
+      <button class="button" type="submit">Join the List</button>
+    </form>
+    <p class="small" id="signupMessage">This demo form does not store or send email addresses yet.</p>
+  </div>
+</section>
+
+<footer>
+  <p>© <span id="year"></span> Money-Link. All rights reserved.</p>
+  <a href="#about">About</a>
+  <a href="#privacy">Privacy</a>
+  <a href="#disclosure">Affiliate Disclosure</a>
+  <p id="about">Discover useful things and opportunities from around the world.</p>
+  <p id="privacy">Privacy: this initial version does not send your email or track visitors using analytics.</p>
+  <p id="disclosure">Affiliate Disclosure: we may earn commissions from qualifying purchases through disclosed affiliate links.</p>
+</footer>
+
+<script>
+const pageURL = window.location.href;
+const shareText = "Check out Money-Link for interesting finds and useful opportunities!";
+
+document.getElementById("year").textContent = new Date().getFullYear();
+
+document.getElementById("whatsapp").href =
+  "https://wa.me/?text=" + encodeURIComponent(shareText + " " + pageURL);
+
+document.getElementById("facebook").href =
+  "https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(pageURL);
+
+document.getElementById("copy").addEventListener("click", async () => {
+  const message = document.getElementById("message");
+  try {
+    await navigator.clipboard.writeText(pageURL);
+    message.textContent = "Website link copied!";
+  } catch {
+    message.textContent = "Copy your website address from your browser's address bar.";
+  }
+});
+
+document.getElementById("signup").addEventListener("submit", event => {
+  event.preventDefault();
+  document.getElementById("signupMessage").textContent =
+    "This demo does not save your email yet. A secure email signup service must be connected first.";
+});
+</script>
+</body>
+</html>
