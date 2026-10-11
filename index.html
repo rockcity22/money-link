@@ -285,5 +285,57 @@ document.getElementById("infoDialog").addEventListener("click",e=>{if(e.target.i
 document.addEventListener("click",function(e){const card=e.target.closest("[data-action]");if(!card)return;const action=card.dataset.action;if(action==="daily"){e.preventDefault();chooseDaily();document.getElementById("daily").scrollIntoView({behavior:"smooth",block:"start"})}else if(action==="search"){e.preventDefault();document.getElementById("home").scrollIntoView({behavior:"smooth",block:"start"});setTimeout(()=>document.getElementById("searchInput").focus(),350)}else if(action==="worldwide"){e.preventDefault();document.getElementById("worldwide").scrollIntoView({behavior:"smooth",block:"start"})}else if(action==="theme"){e.preventDefault();toggleTheme()}});
 renderProducts();renderTools();renderWishlist();renderFavorites();chooseDaily();
 </script>
+  <script>
+(function(){
+const fixes={
+'ðŸ”—':'🔗',
+'ðŸŒ™':'🌙',
+'â˜°':'☰',
+'âœ¨':'✨',
+'â†—':'↗',
+'Â©':'©',
+'ðŸ’š':'💚',
+'ðŸ’™':'💙',
+'ðŸ”¥':'🔥',
+'ðŸ“±':'📱',
+'ðŸŽ®':'🎮',
+'ðŸ’»':'💻',
+'ðŸ“§':'📧',
+'ðŸ“ž':'📞',
+'ðŸ’¬':'💬',
+'ðŸšš':'🚚',
+'ðŸ”Ž':'🔎',
+'ðŸ›’':'🛒',
+'â€“':'–',
+'â€”':'—',
+'Â·':'·'
+};
+function repair(s){
+for(const bad in fixes){
+s=s.split(bad).join(fixes[bad]);
+}
+return s;
+}
+function scan(root){
+if(root.nodeType===3){
+root.nodeValue=repair(root.nodeValue);
+return;
+}
+if(root.nodeType!==1||root.tagName==='SCRIPT'||root.tagName==='STYLE')return;
+for(const a of root.attributes){
+const v=repair(a.value);
+if(v!==a.value)root.setAttribute(a.name,v);
+}
+for(const child of [...root.childNodes])scan(child);
+}
+scan(document.body);
+new MutationObserver(records=>{
+records.forEach(r=>{
+if(r.type==='characterData')scan(r.target);
+r.addedNodes.forEach(scan);
+});
+}).observe(document.body,{subtree:true,childList:true,characterData:true});
+})();
+</script>
 </body>
 </html>
