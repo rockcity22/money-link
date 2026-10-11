@@ -2,14 +2,14 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#087cf0">
+<meta name="description" content="Discover useful products, digital tools and free resources with Money-Link.">
 <title>Money-Link | Discover More</title>
 
 <style>
 :root {
   --blue:#087cf0;
-  --black:#07111f;
   --green:#26d07c;
   --yellow:#ffd447;
   --bg:#07111f;
@@ -17,9 +17,12 @@
   --text:#f0f6ff;
   --muted:#a9bad0;
   --border:#293d56;
+  --danger:#ff6285;
 }
 
 * { box-sizing:border-box; }
+
+html { scroll-behavior:smooth; }
 
 body {
   margin:0;
@@ -27,43 +30,42 @@ body {
   background:var(--bg);
   color:var(--text);
   line-height:1.6;
+  transition:background .2s,color .2s;
+}
+
+body.light {
+  --bg:#eaf2fc;
+  --card:#fff;
+  --text:#10223a;
+  --muted:#526780;
+  --border:#cad8e9;
 }
 
 a { color:inherit;text-decoration:none; }
-
-button,input {
-  font:inherit;
-}
-
-button {
-  cursor:pointer;
-}
+button,input,select,textarea { font:inherit; }
+button { cursor:pointer; }
 
 header {
   position:sticky;
   top:0;
-  z-index:10;
-  background:#07111ff5;
-  border-bottom:1px solid var(--border);
-  padding:14px 5%;
+  z-index:20;
+  padding:13px 5%;
   display:flex;
   align-items:center;
   justify-content:space-between;
   gap:12px;
+  background:var(--bg);
+  border-bottom:1px solid var(--border);
 }
 
-.logo {
-  font-size:24px;
-  font-weight:900;
-}
-
+.logo { font-size:24px;font-weight:900; }
 .logo span { color:var(--green); }
 
 .menu {
+  padding:9px 12px;
   background:var(--card);
   color:var(--text);
   border:1px solid var(--border);
-  padding:9px 12px;
   border-radius:10px;
 }
 
@@ -71,24 +73,20 @@ nav {
   display:none;
   position:absolute;
   top:65px;
-  right:5%;
   left:5%;
-  background:var(--card);
+  right:5%;
   padding:15px;
+  background:var(--card);
   border:1px solid var(--border);
   border-radius:14px;
 }
 
-nav.open {
-  display:grid;
-  gap:12px;
-}
-
+nav.open { display:grid;gap:12px; }
 nav a:hover { color:var(--green); }
 
 .hero {
-  padding:65px 6% 45px;
-  background:radial-gradient(ellipse at top left,#087cf044,transparent 65%);
+  padding:58px 6% 45px;
+  background:radial-gradient(ellipse at top left,#087cf044,transparent 70%);
 }
 
 .label {
@@ -105,72 +103,75 @@ h1 {
 }
 
 h1 span { color:var(--blue); }
-
 p { color:var(--muted); }
 
-.hero p {
-  max-width:600px;
-  font-size:17px;
-}
+.hero p { max-width:600px;font-size:17px; }
 
-.search {
+.row {
   display:flex;
-  gap:8px;
-  margin-top:25px;
-  max-width:650px;
+  gap:9px;
+  align-items:center;
   flex-wrap:wrap;
 }
 
-.search input {
-  flex:1;
-  min-width:180px;
+.search { margin-top:22px;max-width:720px; }
+
+input,select,textarea {
+  min-width:0;
+  padding:12px;
+  border-radius:11px;
   background:var(--card);
   color:var(--text);
   border:1px solid var(--border);
-  border-radius:12px;
-  padding:14px;
 }
 
+.search input { flex:1;min-width:180px; }
+
 .btn {
+  display:inline-block;
+  padding:11px 15px;
   background:var(--blue);
-  color:white;
+  color:#fff;
   border:0;
   border-radius:11px;
-  padding:12px 17px;
   font-weight:bold;
 }
 
 .btn:hover { filter:brightness(1.15); }
 
-.yellow { color:var(--yellow); }
-
-section { padding:35px 5%; }
-
-.section-title {
-  font-size:27px;
-  margin-bottom:5px;
+.btn.secondary {
+  background:var(--card);
+  color:var(--text);
+  border:1px solid var(--border);
 }
+
+.btn.green { background:var(--green);color:#062315; }
+.btn.yellow { background:var(--yellow);color:#211900; }
+
+section { padding:32px 5%;scroll-margin-top:75px; }
+
+.section-title { font-size:27px;margin:0 0 5px; }
 
 .categories {
   display:flex;
-  gap:9px;
+  gap:8px;
   overflow-x:auto;
-  padding:12px 0 18px;
+  padding:12px 0 17px;
 }
 
 .chip {
   white-space:nowrap;
-  padding:9px 14px;
+  padding:9px 13px;
   border:1px solid var(--border);
   border-radius:30px;
   background:var(--card);
   color:var(--text);
 }
 
-.chip.active {
-  background:var(--blue);
-  border-color:var(--blue);
-}
+.chip.active { background:var(--blue);color:white; }
+
+.toolbar { margin:8px 0 17px; }
+.toolbar select { flex:1;min-width:145px; }
 
 .grid {
   display:grid;
@@ -179,65 +180,77 @@ section { padding:35px 5%; }
 }
 
 .card {
+  min-width:0;
   background:var(--card);
   border:1px solid var(--border);
-  border-radius:17px;
+  border-radius:16px;
   overflow:hidden;
-  transition:.2s;
+  transition:transform .2s,border-color .2s;
 }
 
 .card:hover {
-  transform:translateY(-4px);
+  transform:translateY(-3px);
   border-color:var(--blue);
 }
 
 .product-image {
-  height:120px;
-  display:grid;
-  place-items:center;
-  background:linear-gradient(135deg,#123d65,#102238);
-  font-size:49px;
+  height:135px;
+  background:#102c49;
   position:relative;
+  overflow:hidden;
+}
+
+.product-image img {
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
 }
 
 .heart {
   position:absolute;
-  right:9px;
-  top:9px;
+  top:8px;
+  right:8px;
+  width:36px;
+  height:36px;
   border:0;
-  background:#07111fdc;
-  color:white;
   border-radius:50%;
-  width:34px;
-  height:34px;
-  font-size:19px;
+  background:#07111fe8;
+  color:white;
+  font-size:21px;
 }
 
-.heart.saved { color:#ff6285; }
+.heart.saved { color:var(--danger); }
 
 .card-content { padding:12px; }
+.card h3 { margin:0;font-size:16px;line-height:1.4; }
+.card p { font-size:13px;margin:7px 0; }
+.small { font-size:12px;color:var(--muted); }
+.card .btn { margin-top:9px;font-size:12px;padding:9px 10px; }
 
-.card h3 {
-  font-size:16px;
-  margin:0;
+.panel {
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:17px;
+  padding:18px;
 }
 
-.card p {
-  font-size:13px;
-  margin:7px 0;
+.discovery {
+  display:grid;
+  grid-template-columns:1fr;
+  gap:18px;
+  align-items:center;
+  background:linear-gradient(130deg,#087cf02a,#26d07c12);
 }
 
-.small {
-  font-size:12px;
-  color:var(--muted);
+.discovery img {
+  width:100%;
+  max-height:250px;
+  object-fit:cover;
+  border-radius:13px;
 }
 
-.card .btn {
-  display:inline-block;
-  font-size:12px;
-  padding:9px 10px;
-  margin-top:7px;
-}
+.discovery h3 { font-size:23px;margin:8px 0; }
 
 .tools {
   display:grid;
@@ -252,40 +265,27 @@ section { padding:35px 5%; }
 }
 
 .tool h3 { margin:0; }
+.tool-icon { font-size:28px;margin-bottom:7px; }
+.tool a { color:var(--green);font-weight:bold; }
 
-.tool-icon {
-  font-size:28px;
-  margin-bottom:7px;
-}
+.form-row { display:flex;gap:8px;flex-wrap:wrap; }
+.form-row input { flex:1;min-width:150px; }
 
-.tool a {
-  color:var(--green);
-  font-weight:bold;
-}
-
-.feature-grid {
+.wishlist-list {
   display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:12px;
+  gap:8px;
+  margin-top:15px;
 }
 
-.feature {
-  background:var(--card);
-  padding:15px;
-  border-radius:14px;
+.wish-item {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  padding:10px;
   border:1px solid var(--border);
-}
-
-footer {
-  margin-top:25px;
-  padding:35px 6%;
-  border-top:1px solid var(--border);
-  background:#050b14;
-}
-
-footer a {
-  display:inline-block;
-  margin:5px 10px 5px 0;
+  border-radius:10px;
+  overflow-wrap:anywhere;
 }
 
 .notice {
@@ -297,16 +297,35 @@ footer a {
   border-radius:12px;
 }
 
-.light {
-  --bg:#eaf2fc;
-  --card:#ffffff;
-  --text:#10223a;
-  --muted:#526780;
-  --border:#cad8e9;
+footer {
+  margin-top:25px;
+  padding:32px 6%;
+  border-top:1px solid var(--border);
 }
 
-.light header { background:#eaf2fcf5; }
-.light footer { background:#dbe7f6; }
+footer a { display:inline-block;margin:5px 10px 5px 0; }
+
+#toast {
+  position:fixed;
+  left:50%;
+  bottom:20px;
+  transform:translateX(-50%);
+  background:var(--green);
+  color:#062315;
+  padding:12px 18px;
+  border-radius:12px;
+  font-weight:bold;
+  z-index:100;
+  display:none;
+  max-width:90%;
+}
+
+.empty {
+  padding:18px;
+  border:1px dashed var(--border);
+  border-radius:12px;
+  color:var(--muted);
+}
 
 @media(min-width:750px) {
   header { padding:15px 6%; }
@@ -317,12 +336,17 @@ footer a {
     padding:0;
     border:0;
     background:transparent;
-    gap:20px;
+    gap:17px;
   }
   .grid { grid-template-columns:repeat(4,minmax(0,1fr)); }
-  .product-image { height:160px; }
+  .product-image { height:170px; }
   .tools { grid-template-columns:repeat(3,minmax(0,1fr)); }
-  .feature-grid { grid-template-columns:repeat(4,minmax(0,1fr)); }
+  .discovery { grid-template-columns:1fr 1fr; }
+}
+
+@media(max-width:360px) {
+  .grid { grid-template-columns:1fr; }
+  .hero { padding-top:40px; }
 }
 </style>
 </head>
@@ -331,14 +355,13 @@ footer a {
 
 <header>
   <a class="logo" href="#home">Money-<span>Link</span></a>
-
   <button class="menu" id="menuBtn">☰ Menu</button>
-
   <nav id="nav">
-    <a href="#discover">Discover</a>
+    <a href="#discover">Products</a>
+    <a href="#daily">Daily Discovery</a>
+    <a href="#wishlist">Wishlist</a>
     <a href="#tools">Digital Tools</a>
     <a href="#free">Free Stuff</a>
-    <a href="#features">Features</a>
     <a href="#contact">Contact</a>
   </nav>
 </header>
@@ -347,24 +370,39 @@ footer a {
 
 <section class="hero" id="home">
   <div class="label">✦ DISCOVER SOMETHING AMAZING</div>
-
-  <h1>Find your next<br>
-    <span>great discovery.</span>
-  </h1>
-
+  <h1>Find your next<br><span>great discovery.</span></h1>
   <p>
     Explore useful products, clever digital tools and free resources
     from around the world. Discover more and make smarter choices.
   </p>
 
-  <div class="search">
-    <input id="searchInput"
-      placeholder="Search products and categories...">
+  <div class="row search">
+    <input id="searchInput" placeholder="Search products and categories...">
     <button class="btn" id="searchBtn">Search ↗</button>
-    <button class="btn" id="surpriseBtn">🎲 Surprise me</button>
+    <button class="btn green" id="surpriseBtn">🎲 Surprise me</button>
   </div>
 
   <p>💚 Useful finds. 🌍 Worldwide discovery. 💙 One place.</p>
+</section>
+
+<section id="daily">
+  <h2 class="section-title">🎲 Daily Discovery</h2>
+  <p>Discover something different today.</p>
+
+  <div class="panel discovery">
+    <div>
+      <div class="label">TODAY'S FEATURED FIND</div>
+      <h3 id="dailyName">Discover a product</h3>
+      <p id="dailyDesc">Find useful ideas for everyday life.</p>
+      <div class="row">
+        <button class="btn" id="newDaily">✨ Find another</button>
+        <a class="btn secondary" id="dailyExplore" href="#discover">Explore products</a>
+      </div>
+    </div>
+    <img id="dailyImage"
+      src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=900&q=80"
+      alt="Featured product">
+  </div>
 </section>
 
 <section id="discover">
@@ -379,9 +417,43 @@ footer a {
     <button class="chip" data-cat="Home">🏠 Home</button>
     <button class="chip" data-cat="Gaming">🎮 Gaming</button>
     <button class="chip" data-cat="Accessories">🔌 Accessories</button>
+    <button class="chip" data-cat="Study">📚 Study</button>
+  </div>
+
+  <div class="row toolbar">
+    <select id="sortSelect" aria-label="Sort products">
+      <option value="featured">Sort: Featured</option>
+      <option value="az">Name: A–Z</option>
+      <option value="za">Name: Z–A</option>
+    </select>
+    <button class="btn secondary" id="resetBtn">Reset filters</button>
   </div>
 
   <div class="grid" id="productGrid"></div>
+</section>
+
+<section id="wishlist">
+  <h2 class="section-title">📝 My Custom Wishlist</h2>
+  <p>Add products you want to remember. Your list is saved on this device.</p>
+
+  <div class="panel">
+    <form id="wishForm" class="form-row">
+      <input id="wishInput" maxlength="100"
+        placeholder="What product are you looking for?" required>
+      <button class="btn green" type="submit">＋ Add item</button>
+    </form>
+    <div id="wishlistList" class="wishlist-list"></div>
+  </div>
+</section>
+
+<section id="favorites">
+  <h2 class="section-title">❤️ My Favorites</h2>
+  <p>Save products using the heart buttons.</p>
+  <div class="row">
+    <button class="btn" id="favoritesBtn">Show my favorites</button>
+    <button class="btn secondary" id="clearFavBtn">Clear favorites</button>
+  </div>
+  <div id="favoritesList" class="grid" style="margin-top:15px"></div>
 </section>
 
 <section id="tools">
@@ -399,49 +471,38 @@ footer a {
       <div class="tool-icon">📚</div>
       <h3>Khan Academy</h3>
       <p>Learn different subjects through free lessons.</p>
-      <a href="https://www.khanacademy.org/"
-         target="_blank" rel="noopener noreferrer">Visit website ↗</a>
+      <a href="https://www.khanacademy.org/" target="_blank" rel="noopener noreferrer">Visit website ↗</a>
     </article>
-
     <article class="tool">
       <div class="tool-icon">💻</div>
       <h3>freeCodeCamp</h3>
       <p>Learn programming with free lessons and projects.</p>
-      <a href="https://www.freecodecamp.org/"
-         target="_blank" rel="noopener noreferrer">Visit website ↗</a>
+      <a href="https://www.freecodecamp.org/" target="_blank" rel="noopener noreferrer">Visit website ↗</a>
     </article>
-
     <article class="tool">
       <div class="tool-icon">🎨</div>
       <h3>Photopea</h3>
       <p>Edit images online with a browser-based editor.</p>
-      <a href="https://www.photopea.com/"
-         target="_blank" rel="noopener noreferrer">Visit website ↗</a>
+      <a href="https://www.photopea.com/" target="_blank" rel="noopener noreferrer">Visit website ↗</a>
     </article>
   </div>
 </section>
 
 <section id="features">
   <h2 class="section-title">✨ More Ways to Discover</h2>
-
-  <div class="feature-grid">
-    <div class="feature">❤️<br><b>Favorites</b><p>Save products on this device.</p></div>
-    <div class="feature">🎲<br><b>Surprise Me</b><p>Find a random product idea.</p></div>
-    <div class="feature">🔎<br><b>Smart Search</b><p>Search product names and categories.</p></div>
-    <div class="feature">🌙<br><b>Appearance</b><p>Switch between dark and light modes.</p></div>
-    <div class="feature">🌍<br><b>Worldwide</b><p>Explore links to international services.</p></div>
-    <div class="feature">💚<br><b>Free Resources</b><p>Find useful free websites.</p></div>
-    <div class="feature">📲<br><b>Share</b><p>Share Money-Link with friends.</p></div>
-    <div class="feature">🛡️<br><b>Shop Carefully</b><p>Check sellers before buying.</p></div>
+  <div class="tools">
+    <article class="tool">❤️ <h3>Favorites</h3><p>Save products on this device.</p></article>
+    <article class="tool">🎲 <h3>Daily Discovery</h3><p>Find a different product idea.</p></article>
+    <article class="tool">🔎 <h3>Smart Search</h3><p>Search product names and categories.</p></article>
+    <article class="tool">🌙 <h3>Appearance</h3><p>Switch between dark and light modes.</p></article>
+    <article class="tool">🌍 <h3>Worldwide</h3><p>Explore links to international services.</p></article>
+    <article class="tool">🛡️ <h3>Shop Carefully</h3><p>Check sellers before buying.</p></article>
   </div>
 
-  <p style="margin-top:20px">
+  <div class="row" style="margin-top:18px">
     <button class="btn" id="themeBtn">🌙 Switch appearance</button>
-    <button class="btn" id="shareBtn">📲 Share website</button>
-    <button class="btn" id="favoritesBtn">❤️ My favorites (<span id="favCount">0</span>)</button>
-  </p>
-
-  <div id="favoritesList"></div>
+    <button class="btn secondary" id="shareBtn">📲 Share website</button>
+  </div>
 </section>
 
 <section id="contact">
@@ -452,14 +513,11 @@ footer a {
       <p>Questions, suggestions and business enquiries.</p>
       <a href="mailto:sudaisnaeem22222@gmail.com">Send an email ↗</a>
     </article>
-
     <article class="tool">
       <h3>💬 WhatsApp</h3>
       <p>Contact us through WhatsApp.</p>
-      <a href="https://wa.me/256768271617"
-         target="_blank" rel="noopener noreferrer">Chat on WhatsApp ↗</a>
+      <a href="https://wa.me/256768271617" target="_blank" rel="noopener noreferrer">Chat on WhatsApp ↗</a>
     </article>
-
     <article class="tool">
       <h3>📱 Phone</h3>
       <p>Choose a phone contact.</p>
@@ -472,9 +530,9 @@ footer a {
 <section>
   <div class="notice">
     Important: Product cards are discovery examples, not verified live listings.
-    Prices, ratings, discounts, stock and delivery details must be checked with
-    the seller. Some external links are ordinary links, not affiliate links.
-    Money-Link does not currently process orders or payments.
+    Product prices, availability, ratings and delivery times must be checked with
+    the seller. Shopping buttons open search results; they are not currently
+    affiliate links. Money-Link does not process orders or payments.
   </div>
 </section>
 
@@ -483,197 +541,360 @@ footer a {
 <footer>
   <div class="logo">Money-<span>Link</span></div>
   <p>Discover more. Spend smarter.</p>
-
   <a href="#home">Home</a>
   <a href="#discover">Products</a>
+  <a href="#wishlist">Wishlist</a>
   <a href="#tools">Digital Tools</a>
-  <a href="#free">Free Stuff</a>
   <a href="#contact">Contact</a>
-
   <p>© <span id="year"></span> Money-Link</p>
 </footer>
 
+<div id="toast" role="status"></div>
+
 <script>
 const products = [
- {name:"Wireless Earbuds",cat:"Audio",icon:"🎧",desc:"Explore wireless audio options.",q:"wireless earbuds"},
- {name:"Smartwatch",cat:"Electronics",icon:"⌚",desc:"Discover smart wearable technology.",q:"smartwatch"},
- {name:"Everyday Backpack",cat:"Fashion",icon:"🎒",desc:"Ideas for school, work and travel.",q:"everyday backpack"},
- {name:"Portable Speaker",cat:"Audio",icon:"🔊",desc:"Explore portable sound options.",q:"portable bluetooth speaker"},
- {name:"Charging Accessories",cat:"Accessories",icon:"🔌",desc:"Find compatible charging gear.",q:"USB C fast charger"},
- {name:"Wireless Keyboard",cat:"Accessories",icon:"⌨️",desc:"Upgrade your desk setup.",q:"wireless keyboard"},
- {name:"Desk Lamp",cat:"Home",icon:"💡",desc:"Lighting ideas for studying.",q:"LED desk lamp"},
- {name:"Gaming Controller",cat:"Gaming",icon:"🎮",desc:"Explore controllers for your platform.",q:"gaming controller"},
- {name:"Everyday Sneakers",cat:"Fashion",icon:"👟",desc:"Discover casual footwear styles.",q:"everyday sneakers"},
- {name:"Reusable Bottle",cat:"Home",icon:"🧴",desc:"An everyday reusable bottle.",q:"reusable water bottle"},
- {name:"Phone Stand",cat:"Accessories",icon:"📱",desc:"A handy addition to your desk.",q:"adjustable phone stand"},
- {name:"Gaming Headset",cat:"Gaming",icon:"🎮",desc:"Explore gaming audio options.",q:"gaming headset"}
+  {name:"Wireless Earbuds",cat:"Audio",desc:"Explore wireless audio options.",q:"wireless earbuds",img:"photo-1505740420928-5e560c06d30e"},
+  {name:"Smartwatch",cat:"Electronics",desc:"Discover wearable technology.",q:"smartwatch",img:"photo-1523275335684-37898b6baf30"},
+  {name:"Everyday Backpack",cat:"Fashion",desc:"Ideas for school, work and travel.",q:"everyday backpack",img:"photo-1553062407-98eeb64c6a62"},
+  {name:"Portable Speaker",cat:"Audio",desc:"Explore portable sound options.",q:"portable bluetooth speaker",img:"photo-1608043152269-423dbba4e7e1"},
+  {name:"Charging Accessories",cat:"Accessories",desc:"Find compatible charging gear.",q:"USB C fast charger",img:"photo-1583394838336-acd977736f90"},
+  {name:"Wireless Keyboard",cat:"Accessories",desc:"Upgrade your desk setup.",q:"wireless keyboard",img:"photo-1587829741301-dc798b83add3"},
+  {name:"Desk Lamp",cat:"Home",desc:"Lighting ideas for studying.",q:"LED desk lamp",img:"photo-1507473885765-e6ed057f782c"},
+  {name:"Gaming Controller",cat:"Gaming",desc:"Explore controllers for your platform.",q:"gaming controller",img:"photo-1486572788966-cfd3df1f5b42"},
+  {name:"Everyday Sneakers",cat:"Fashion",desc:"Discover casual footwear styles.",q:"everyday sneakers",img:"photo-1542291026-7eec264c27ff"},
+  {name:"Reusable Bottle",cat:"Home",desc:"An everyday reusable bottle.",q:"reusable water bottle",img:"photo-1602143407151-7111542de6e8"},
+  {name:"Phone Stand",cat:"Accessories",desc:"A handy addition to your desk.",q:"adjustable phone stand",img:"photo-1511707171634-5f897ff02aa9"},
+  {name:"Gaming Headset",cat:"Gaming",desc:"Explore gaming audio options.",q:"gaming headset",img:"photo-1599669454699-248893623440"},
+  {name:"Study Notebook",cat:"Study",desc:"Keep your study notes organized.",q:"study notebook",img:"photo-1531346878377-a5be20888e57"},
+  {name:"Laptop",cat:"Electronics",desc:"Explore laptops for work and study.",q:"student laptop",img:"photo-1496181133206-80ce9b88a853"},
+  {name:"Computer Mouse",cat:"Accessories",desc:"Find a mouse for your setup.",q:"wireless computer mouse",img:"photo-1527864550417-7fd91fc51a46"},
+  {name:"Sunglasses",cat:"Fashion",desc:"Explore everyday eyewear styles.",q:"sunglasses",img:"photo-1511499767150-a48a237f0083"},
+  {name:"Coffee Maker",cat:"Home",desc:"Explore coffee-making equipment.",q:"coffee maker",img:"photo-1495474472287-4d71bcdd2085"},
+  {name:"Tablet",cat:"Electronics",desc:"Explore tablets for learning and entertainment.",q:"tablet computer",img:"photo-1544244015-0df4b3ffc6b0"},
+  {name:"Power Bank",cat:"Accessories",desc:"Explore portable charging options.",q:"portable power bank",img:"photo-1609091839311-d5365f9ff1c5"},
+  {name:"Football",cat:"Gaming",desc:"Find a ball for training and play.",q:"football soccer ball",img:"photo-1614632537423-1e6c2e7e0c9e"}
 ];
 
 const digitalTools = [
- {name:"ChatGPT",icon:"🤖",desc:"AI help for ideas and learning.",url:"https://chatgpt.com/"},
- {name:"Canva",icon:"🎨",desc:"Create graphics and presentations.",url:"https://www.canva.com/"},
- {name:"CapCut",icon:"🎬",desc:"Edit videos and social content.",url:"https://www.capcut.com/"},
- {name:"Google Trends",icon:"📈",desc:"Explore search trends.",url:"https://trends.google.com/trends/"},
- {name:"Remove.bg",icon:"🪄",desc:"Remove image backgrounds.",url:"https://www.remove.bg/"},
- {name:"Notion",icon:"🗂️",desc:"Organize tasks, notes and projects.",url:"https://www.notion.so/"}
+  {name:"ChatGPT",icon:"🤖",desc:"AI help for ideas and learning.",url:"https://chatgpt.com/"},
+  {name:"Canva",icon:"🎨",desc:"Create graphics and presentations.",url:"https://www.canva.com/"},
+  {name:"CapCut",icon:"🎬",desc:"Edit videos and social content.",url:"https://www.capcut.com/"},
+  {name:"Google Trends",icon:"📈",desc:"Explore search trends.",url:"https://trends.google.com/trends/"},
+  {name:"Remove.bg",icon:"🪄",desc:"Remove image backgrounds.",url:"https://www.remove.bg/"},
+  {name:"Notion",icon:"🗂️",desc:"Organize tasks, notes and projects.",url:"https://www.notion.so/"}
 ];
 
 let activeCategory = "All";
 let query = "";
+let dailyProduct = null;
+
+function readStore(key,fallback) {
+  try {
+    const value = localStorage.getItem(key);
+    return value === null ? fallback : JSON.parse(value);
+  } catch(e) { return fallback; }
+}
+
+function writeStore(key,value) {
+  try { localStorage.setItem(key,JSON.stringify(value)); }
+  catch(e) { showToast("Couldn't save on this device."); }
+}
 
 function getFavorites() {
-  try { return JSON.parse(localStorage.getItem("ml_favorites") || "[]"); }
-  catch(e) { return []; }
+  const list = readStore("ml_favorites",[]);
+  return Array.isArray(list) ? list : [];
 }
 
-function saveFavorites(list) {
-  try { localStorage.setItem("ml_favorites", JSON.stringify(list)); }
-  catch(e) {}
+function getWishlist() {
+  const list = readStore("ml_wishlist",[]);
+  return Array.isArray(list) ? list : [];
 }
 
-function renderProducts() {
-  const favorites = getFavorites();
+function showToast(message) {
+  const toast = document.getElementById("toast");
+  toast.textContent = message;
+  toast.style.display = "block";
+  clearTimeout(showToast.timer);
+  showToast.timer = setTimeout(() => toast.style.display="none",2400);
+}
 
-  const list = products.filter(p =>
-    (activeCategory === "All" || p.cat === activeCategory) &&
-    (p.name + " " + p.cat + " " + p.desc)
-      .toLowerCase().includes(query.toLowerCase())
-  );
+function imageUrl(product) {
+  return "https://images.unsplash.com/" + product.img +
+    "?auto=format&fit=crop&w=700&q=80";
+}
 
-  document.getElementById("productGrid").innerHTML = list.map(p => `
+function productCard(p) {
+  const saved = getFavorites().includes(p.name);
+  const image = imageUrl(p);
+  const searchUrl = "https://www.google.com/search?tbm=shop&q=" +
+    encodeURIComponent(p.q);
+
+  return `
     <article class="card">
       <div class="product-image">
-        ${p.icon}
-        <button class="heart ${favorites.includes(p.name) ? "saved" : ""}"
-          data-heart="${p.name}" aria-label="Save ${p.name}">
-          ${favorites.includes(p.name) ? "♥" : "♡"}
+        <img src="${image}" alt="${p.name}"
+          loading="lazy"
+          onerror="this.style.display='none';this.parentElement.style.background='#123d65';this.parentElement.insertAdjacentHTML('beforeend','<span style=&quot;font-size:44px&quot;>🛍️</span>')">
+        <button class="heart ${saved ? "saved" : ""}"
+          data-heart="${p.name}" aria-label="Toggle favorite">
+          ${saved ? "♥" : "♡"}
         </button>
       </div>
       <div class="card-content">
+        <div class="small">${p.cat}</div>
         <h3>${p.name}</h3>
         <p>${p.desc}</p>
-        <div class="small">Current price: check seller</div>
-        <a class="btn" href="https://www.google.com/search?tbm=shop&q=${encodeURIComponent(p.q)}"
+        <div class="small">Price: check seller</div>
+        <a class="btn" href="${searchUrl}"
           target="_blank" rel="noopener noreferrer">Explore options ↗</a>
       </div>
-    </article>
-  `).join("") || "<p>No matches found. Try another search.</p>";
+    </article>`;
+}
 
-  document.getElementById("favCount").textContent = favorites.length;
+function getFilteredProducts() {
+  let list = products.filter(p =>
+    (activeCategory === "All" || p.cat === activeCategory) &&
+    (p.name+" "+p.cat+" "+p.desc).toLowerCase().includes(query.toLowerCase())
+  );
+
+  const sort = document.getElementById("sortSelect").value;
+  if (sort === "az") list.sort((a,b)=>a.name.localeCompare(b.name));
+  if (sort === "za") list.sort((a,b)=>b.name.localeCompare(a.name));
+  return list;
+}
+
+function renderProducts() {
+  const list = getFilteredProducts();
+  document.getElementById("productGrid").innerHTML = list.length
+    ? list.map(productCard).join("")
+    : '<div class="empty">No matches found. Try another search or category.</div>';
 }
 
 function renderTools() {
-  document.getElementById("toolGrid").innerHTML = digitalTools.map(t => `
+  document.getElementById("toolGrid").innerHTML = digitalTools.map(t=>`
     <article class="tool">
       <div class="tool-icon">${t.icon}</div>
       <h3>${t.name}</h3>
       <p>${t.desc}</p>
-      <a href="${t.url}" target="_blank" rel="noopener noreferrer">
-        Visit official website ↗
-      </a>
-    </article>
-  `).join("");
+      <a href="${t.url}" target="_blank" rel="noopener noreferrer">Visit official website ↗</a>
+    </article>`).join("");
 }
 
-document.getElementById("categories").addEventListener("click", e => {
+function renderWishlist() {
+  const list = getWishlist();
+  const container = document.getElementById("wishlistList");
+
+  if (!list.length) {
+    container.innerHTML = '<div class="empty">Your wishlist is empty. Add your first product above!</div>';
+    return;
+  }
+
+  container.innerHTML = "";
+  list.forEach((item,index) => {
+    const row = document.createElement("div");
+    row.className = "wish-item";
+
+    const name = document.createElement("span");
+    name.textContent = "🛍️ " + item;
+
+    const button = document.createElement("button");
+    button.className = "btn secondary";
+    button.textContent = "Remove";
+    button.addEventListener("click",()=>{
+      const updated = getWishlist();
+      updated.splice(index,1);
+      writeStore("ml_wishlist",updated);
+      renderWishlist();
+      showToast("Removed from wishlist");
+    });
+
+    row.append(name,button);
+    container.appendChild(row);
+  });
+}
+
+function renderFavorites() {
+  const list = getFavorites();
+  const container = document.getElementById("favoritesList");
+  const savedProducts = products.filter(p=>list.includes(p.name));
+
+  container.innerHTML = savedProducts.length
+    ? savedProducts.map(productCard).join("")
+    : '<div class="empty">No saved products yet. Tap a heart on a product.</div>';
+}
+
+function chooseDaily() {
+  let list = getFilteredProducts();
+  if (!list.length) list = products;
+
+  dailyProduct = list[Math.floor(Math.random()*list.length)];
+
+  document.getElementById("dailyName").textContent = dailyProduct.name;
+  document.getElementById("dailyDesc").textContent =
+    dailyProduct.desc + " Category: " + dailyProduct.cat + ".";
+
+  const img = document.getElementById("dailyImage");
+  img.src = imageUrl(dailyProduct);
+  img.alt = dailyProduct.name;
+  img.onerror = () => {
+    img.onerror = null;
+    img.style.display = "none";
+  };
+
+  document.getElementById("dailyExplore").href =
+    "https://www.google.com/search?tbm=shop&q=" +
+    encodeURIComponent(dailyProduct.q);
+}
+
+document.getElementById("categories").addEventListener("click",e=>{
   const button = e.target.closest("[data-cat]");
   if (!button) return;
 
   activeCategory = button.dataset.cat;
-
-  document.querySelectorAll(".chip").forEach(chip =>
-    chip.classList.toggle("active", chip === button)
+  document.querySelectorAll(".chip").forEach(chip=>
+    chip.classList.toggle("active",chip===button)
   );
 
   renderProducts();
 });
 
-document.getElementById("searchBtn").onclick = () => {
+document.getElementById("searchBtn").onclick = ()=>{
   query = document.getElementById("searchInput").value.trim();
   renderProducts();
   document.getElementById("discover").scrollIntoView({behavior:"smooth"});
 };
 
-document.getElementById("searchInput").addEventListener("keydown", e => {
-  if (e.key === "Enter") document.getElementById("searchBtn").click();
+document.getElementById("searchInput").addEventListener("keydown",e=>{
+  if (e.key==="Enter") document.getElementById("searchBtn").click();
 });
 
-document.getElementById("productGrid").addEventListener("click", e => {
+document.getElementById("sortSelect").onchange = renderProducts;
+
+document.getElementById("resetBtn").onclick = ()=>{
+  activeCategory = "All";
+  query = "";
+  document.getElementById("searchInput").value = "";
+  document.getElementById("sortSelect").value = "featured";
+  document.querySelectorAll(".chip").forEach(chip=>
+    chip.classList.toggle("active",chip.dataset.cat==="All")
+  );
+  renderProducts();
+  showToast("Filters reset");
+};
+
+document.getElementById("productGrid").addEventListener("click",e=>{
   const button = e.target.closest("[data-heart]");
   if (!button) return;
 
-  let favorites = getFavorites();
   const name = button.dataset.heart;
+  let list = getFavorites();
 
-  favorites = favorites.includes(name)
-    ? favorites.filter(item => item !== name)
-    : [...favorites, name];
+  list = list.includes(name)
+    ? list.filter(item=>item!==name)
+    : [...list,name];
 
-  saveFavorites(favorites);
+  writeStore("ml_favorites",list);
   renderProducts();
+  renderFavorites();
+  showToast(list.includes(name) ? "Added to favorites ❤️" : "Removed from favorites");
 });
 
-document.getElementById("favoritesBtn").onclick = () => {
-  const favorites = getFavorites();
+document.getElementById("favoritesList").addEventListener("click",e=>{
+  const button = e.target.closest("[data-heart]");
+  if (!button) return;
 
-  document.getElementById("favoritesList").innerHTML = favorites.length
-    ? "<h3>Your saved products</h3><p>" +
-      favorites.map(name => "❤️ " + name).join("<br>") +
-      "</p>"
-    : "<p>No favorites saved yet. Tap a heart on a product to save it.";
+  const name = button.dataset.heart;
+  let list = getFavorites();
 
-  document.getElementById("favoritesList")
-    .scrollIntoView({behavior:"smooth"});
-};
+  list = list.includes(name)
+    ? list.filter(item=>item!==name)
+    : [...list,name];
 
-document.getElementById("surpriseBtn").onclick = () => {
-  const list = products.filter(p =>
-    (activeCategory === "All" || p.cat === activeCategory) &&
-    (p.name + " " + p.cat + " " + p.desc)
-      .toLowerCase().includes(query.toLowerCase())
-  );
+  writeStore("ml_favorites",list);
+  renderProducts();
+  renderFavorites();
+  showToast("Favorites updated");
+});
 
-  if (!list.length) {
-    alert("No matching products. Try another search!");
+document.getElementById("wishForm").addEventListener("submit",e=>{
+  e.preventDefault();
+
+  const input = document.getElementById("wishInput");
+  const name = input.value.trim();
+  if (!name) return;
+
+  const list = getWishlist();
+
+  if (list.some(item=>item.toLowerCase()===name.toLowerCase())) {
+    showToast("That item is already on your wishlist");
     return;
   }
 
-  const pick = list[Math.floor(Math.random() * list.length)];
+  list.push(name);
+  writeStore("ml_wishlist",list);
+  input.value = "";
+  renderWishlist();
+  showToast("Added to your wishlist 📝");
+});
 
-  alert("🎲 Your surprise find: " + pick.name + "\n" + pick.desc);
+document.getElementById("favoritesBtn").onclick = ()=>{
+  renderFavorites();
+  document.getElementById("favorites").scrollIntoView({behavior:"smooth"});
+};
+
+document.getElementById("clearFavBtn").onclick = ()=>{
+  if (!getFavorites().length) {
+    showToast("No favorites to clear");
+    return;
+  }
+
+  if (confirm("Clear all saved favorites?")) {
+    writeStore("ml_favorites",[]);
+    renderProducts();
+    renderFavorites();
+    showToast("Favorites cleared");
+  }
+};
+
+document.getElementById("surpriseBtn").onclick = ()=>{
+  const list = getFilteredProducts();
+
+  if (!list.length) {
+    showToast("No matching products. Try another search.");
+    return;
+  }
+
+  const pick = list[Math.floor(Math.random()*list.length)];
 
   window.open(
-    "https://www.google.com/search?tbm=shop&q=" +
-    encodeURIComponent(pick.q),
-    "_blank",
-    "noopener"
+    "https://www.google.com/search?tbm=shop&q="+encodeURIComponent(pick.q),
+    "_blank"
   );
 };
 
-document.getElementById("menuBtn").onclick = () => {
+document.getElementById("newDaily").onclick = chooseDaily;
+
+document.getElementById("menuBtn").onclick = ()=>{
   document.getElementById("nav").classList.toggle("open");
 };
 
-document.querySelectorAll("#nav a").forEach(link => {
-  link.onclick = () => document.getElementById("nav").classList.remove("open");
+document.querySelectorAll("#nav a").forEach(link=>{
+  link.onclick = ()=>document.getElementById("nav").classList.remove("open");
 });
 
-document.getElementById("themeBtn").onclick = () => {
+document.getElementById("themeBtn").onclick = ()=>{
   document.body.classList.toggle("light");
-  try {
-    localStorage.setItem(
-      "ml_light",
-      document.body.classList.contains("light") ? "1" : "0"
-    );
-  } catch(e) {}
+  const light = document.body.classList.contains("light");
+  try { localStorage.setItem("ml_light",light?"1":"0"); } catch(e) {}
+  showToast(light?"Light mode enabled":"Dark mode enabled");
 };
 
 try {
-  if (localStorage.getItem("ml_light") === "1")
+  if (localStorage.getItem("ml_light")==="1")
     document.body.classList.add("light");
 } catch(e) {}
 
-document.getElementById("shareBtn").onclick = async () => {
+document.getElementById("shareBtn").onclick = async ()=>{
   try {
     if (navigator.share) {
       await navigator.share({
@@ -682,15 +903,21 @@ document.getElementById("shareBtn").onclick = async () => {
         url:location.href
       });
     } else {
-      alert("Copy this website's address from your browser and share it!");
+      await navigator.clipboard.writeText(location.href);
+      showToast("Website address copied!");
     }
-  } catch(e) {}
+  } catch(e) {
+    showToast("Copy your website address from the browser to share it.");
+  }
 };
 
 document.getElementById("year").textContent = new Date().getFullYear();
 
 renderProducts();
 renderTools();
+renderWishlist();
+renderFavorites();
+chooseDaily();
 </script>
 
 </body>
